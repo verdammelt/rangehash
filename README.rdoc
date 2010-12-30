@@ -1,6 +1,7 @@
 = rangehash
 
 * http://github.com/verdammelt/range-hash
+* https://rubygems.org/gems/rangehash
 
 == DESCRIPTION:
 
@@ -14,18 +15,16 @@ one of the hashes that value is returned.
 
 == SYNOPSIS:
 
-<code>
-hash = RangeHash.new
-hash[10..20] = 'foo'
-hash[21..22] = 'bar'
-val = hash[15] # val == 'foo'
-</code>
+     hash = RangeHash.new
+     hash[10..20] = 'foo'
+     hash[21..22] = 'bar'
+     val = hash[15] # val == 'foo'
 
 == REQUIREMENTS:
 
 == INSTALL:
 
-sudo gem install range-hash
+   sudo gem install range-hash
 
 == LICENSE:
 
