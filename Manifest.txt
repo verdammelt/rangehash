@@ -1,3 +1,4 @@
+.rspec
 History.txt
 Manifest.txt
 PostInstall.txt
@@ -7,5 +8,7 @@ lib/rangehash.rb
 script/console
 script/destroy
 script/generate
-test/test_helper.rb
-test/test_rangehash.rb
+spec/rangehash_spec.rb
+spec/spec_helper.rb
+tasks/rspec.rake
+todo.org

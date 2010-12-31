@@ -1,3 +1,8 @@
+=== 0.0.2 2010-12-30
+
+* 1 major enhancement:
+  * switch from test/unit to rspec
+
 === 0.0.1 2010-12-29
 
 * 1 major enhancement:

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'rubygems'
 gem 'hoe', '>= 2.1.0'
 require 'hoe'
@@ -13,14 +14,20 @@ Hoe.plugin :newgem
 $hoe = Hoe.spec 'rangehash' do
   self.developer 'Mark Simpson', 'verdammelt@gmail.com'
   self.post_install_message = 'PostInstall.txt' # TODO remove if post-install message not required
-  self.rubyforge_name       = self.name # TODO this is default value
-  # self.extra_deps         = [['activesupport','>= 2.0.2']]
-
+  self.rubyforge_name       = self.name
+  self.test_globs         = ["spec/**/*_spec.rb"] #["test/**/test_*.rb", "spec/**/*_spec.rb"]
 end
 
 require 'newgem/tasks'
 Dir['tasks/**/*.rake'].each { |t| load t }
 
-# TODO - want other tests/tasks run by default? Add them to the list
-# remove_task :default
-# task :default => [:spec, :features]
+require 'rake'
+require 'rspec/core/rake_task'
+
+remove_task :rcov
+
+desc "Run all specs with RCov"
+RSpec::Core::RakeTask.new(:rcov) do |t|
+  t.rcov = true
+  t.rcov_opts = ['--text-report', '--save', 'coverage.info', '--exclude', 'spec_helper', '--exclude', '^/']
+end
