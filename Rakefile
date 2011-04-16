@@ -15,7 +15,7 @@ $hoe = Hoe.spec 'rangehash' do
   self.developer 'Mark Simpson', 'verdammelt@gmail.com'
   self.post_install_message = 'PostInstall.txt' # TODO remove if post-install message not required
   self.rubyforge_name       = self.name
-  self.test_globs         = ["spec/**/*_spec.rb"] #["test/**/test_*.rb", "spec/**/*_spec.rb"]
+  self.test_globs         = ["spec/**/*_spec.rb"]
   self.extra_rdoc_files = ["README.rdoc"]
 end
 

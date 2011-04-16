@@ -32,8 +32,7 @@ class RangeHash
   private
   
   def sort_key(a)
-    return a.first if Range === a
-    a
+    return Range === a ? a.first : a
   end
 end
 
