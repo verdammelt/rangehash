@@ -2,38 +2,52 @@ $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
 module Rangehash
-  VERSION = '0.0.2'
+  VERSION = '0.0.3'
 end
 
-class RangeHash
-  def initialize (key_value_hash, default_value=nil)
-    @key_value_hash = key_value_hash || Hash.new()
-    @default_item = [nil, default_value]
-  end
-  
+class RangeHash < Hash
   def [](key)
-    (@key_value_hash.find{ |kv| kv[0] === key } || @default_item)[1]
+    value = find_value key
+    value == :notfound ? default : value
   end
-  
-  def []=(key, value)
-    @key_value_hash[key] = value
+
+  def fetch(key, default = nil)
+    value = find_value key
+    return value if value != :notfound
+    return default if default != nil
+    yield key if block_given?
+    raise IndexError, "key " + key.to_s + " not found" if not block_given?
   end
-  
-  def to_s
-    @key_value_hash.to_s
+
+  def key?(key)
+    found = find_pair(key)
+    !(found.empty?)
   end
-  
+
+  alias_method :has_key?, :key?
+  alias_method :include?, :key?
+  alias_method :member?, :key?
+
+  def delete(key)
+    super
+  end
+
   def sorted_keys
-    @key_value_hash.keys.sort do |a, b|
+    keys.sort do |a, b|
       sort_key(a) <=> sort_key(b)
     end
   end
   
   private
+  def find_pair(key)
+    each_pair.select {|k, v| (k == key || k === key)}
+  end
   
+  def find_value(key)
+    (find_pair(key).first || [nil, :notfound])[1]
+  end
+
   def sort_key(a)
     return Range === a ? a.first : a
   end
 end
-
-

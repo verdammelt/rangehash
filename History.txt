@@ -1,3 +1,7 @@
+=== 0.0.3 2011-04-25
+* 1 major enhancement:
+  * RangeHash is now a full fledged derived class of Hash
+
 === 0.0.2 2010-12-30
 
 * 1 major enhancement:
