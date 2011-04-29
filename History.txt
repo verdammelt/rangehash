@@ -1,3 +1,7 @@
+=== 0.0.4 2011-04-28
+* 1 Major enhancement:
+  * Upated to Ruby 1.9
+
 === 0.0.3 2011-04-25
 * 1 major enhancement:
   * RangeHash is now a full fledged derived class of Hash
