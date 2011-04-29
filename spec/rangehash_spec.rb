@@ -60,6 +60,18 @@ describe RangeHash do
     end
   end
 
+  describe ".assoc" do
+    it "handle reanges specially" do
+      rh[2..4] = :foo
+      rh.assoc(3).should == [(2..4), :foo]
+    end
+
+    it "returns nil if key not found" do
+      rh[2..4] = :foo
+      rh.assoc(42).should be_nil
+    end 
+  end
+
   describe ".fetch" do
     it "handles ranges" do
       rh[2..4] = :foo

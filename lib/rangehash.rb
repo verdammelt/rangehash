@@ -19,6 +19,11 @@ class RangeHash < Hash
     raise IndexError, "key " + key.to_s + " not found" if not block_given?
   end
 
+  def assoc(key)
+    found = find_pair(key)
+    found.empty? ? nil : found.first
+  end
+
   def key?(key)
     found = find_pair(key)
     !(found.empty?)
