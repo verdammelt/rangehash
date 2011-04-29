@@ -45,7 +45,7 @@ class RangeHash < Hash
   
   private
   def find_pair(key)
-    each_pair.select {|k, v| (k == key || k === key)}
+    each.select {|k, v| (k == key || k === key)}
   end
   
   def find_value(key)
