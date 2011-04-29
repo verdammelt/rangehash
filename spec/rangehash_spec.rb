@@ -135,13 +135,6 @@ describe RangeHash do
     end
   end
 
-  describe ".index" do
-    it "handles ranges" do
-      rh[2..4] = :foo
-      rh.index(:foo).should == (2..4)
-    end
-  end
-
   describe ".sorted_keys" do
     it "allows retrieval of sorted keys" do
       rh[10..20] = :foo
