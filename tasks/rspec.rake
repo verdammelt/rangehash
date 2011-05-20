@@ -19,3 +19,14 @@ RSpec::Core::RakeTask.new do |t|
   t.rspec_opts = ['--colour', '--format', 'd']
   t.ruby_opts = ['-w']
 end
+
+require 'rake'
+require 'rspec/core/rake_task'
+
+remove_task :rcov
+
+desc "Run all specs with RCov"
+RSpec::Core::RakeTask.new(:rcov) do |t|
+  t.rcov = true
+  t.rcov_opts = ['--text-report', '--save', 'coverage.info', '--exclude', 'spec_helper', '--exclude', '^/']
+end

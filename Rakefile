@@ -6,11 +6,11 @@ require 'fileutils'
 require './lib/rangehash'
 
 Hoe.plugin :newgem
-# Hoe.plugin :website
-# Hoe.plugin :cucumberfeatures
+Hoe.plugin :flay
+Hoe.plugin :flog
+Hoe.plugin :reek
+Hoe.plugin :roodi
 
-# Generate all the Rake tasks
-# Run 'rake -T' to see list of generated tasks (from gem root directory)
 $hoe = Hoe.spec 'rangehash' do
   self.developer 'Mark Simpson', 'verdammelt@gmail.com'
   self.post_install_message = 'PostInstall.txt' # TODO remove if post-install message not required
@@ -21,14 +21,3 @@ end
 
 require 'newgem/tasks'
 Dir['tasks/**/*.rake'].each { |t| load t }
-
-require 'rake'
-require 'rspec/core/rake_task'
-
-remove_task :rcov
-
-desc "Run all specs with RCov"
-RSpec::Core::RakeTask.new(:rcov) do |t|
-  t.rcov = true
-  t.rcov_opts = ['--text-report', '--save', 'coverage.info', '--exclude', 'spec_helper', '--exclude', '^/']
-end
