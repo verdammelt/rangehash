@@ -1,2 +1,3 @@
 * Removing keys? How to handle removing ranges? split them?
 * Handle overlapping ranges?
+* migrate to use bundler

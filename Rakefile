@@ -20,4 +20,3 @@ $hoe = Hoe.spec 'rangehash' do
 end
 
 require 'newgem/tasks'
-Dir['tasks/**/*.rake'].each { |t| load t }
