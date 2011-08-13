@@ -10,5 +10,4 @@ script/destroy
 script/generate
 spec/rangehash_spec.rb
 spec/spec_helper.rb
-tasks/rspec.rake
 todo.org
