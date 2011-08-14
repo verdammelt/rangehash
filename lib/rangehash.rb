@@ -1,10 +1,6 @@
 $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
-module Rangehash
- VERSION = '0.0.5'
-end
-
 class RangeHash < Hash
   def [](key)
     value = find_value key
