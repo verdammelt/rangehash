@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "rangehash/version"
 
 Gem::Specification.new do |s|
-  s.name        = "RangeHash"
+  s.name        = "rangehash"
   s.version     = Rangehash::VERSION
   s.authors     = ["Mark Simpson"]
   s.email       = ["verdammelt@gmail.com"]
